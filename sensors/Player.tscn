@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 97.1288
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.90167, 3.62416 )
+
+[node name="Player" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Player" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="ShieldArea2D" type="Area2D" parent="."]
+
+[node name="Shield" type="Sprite" parent="ShieldArea2D"]
+position = Vector2( -200, -1 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldArea2D"]
+position = Vector2( -199, 1 )
+scale = Vector2( 10.1701, -13.4463 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
+[connection signal="area_entered" from="ShieldArea2D" to="." method="_on_ShieldArea2D_area_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -44,26 +45,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1093.0
-margin_bottom = 661.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AttackTimer" type="Timer" parent="."]
 
 [node name="timeLeft" type="ColorRect" parent="."]
 material = SubResource( 2 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 270.0
-margin_top = 17.0
-margin_right = 788.0
-margin_bottom = 103.0
+margin_left = 1276.0
+margin_top = -141.0
+margin_right = 1794.0
+margin_bottom = -55.0
 color = Color( 0.133333, 0.0509804, 0.0509804, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 407, 249 )
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="died" from="Player" to="." method="_on_Player_died"]
