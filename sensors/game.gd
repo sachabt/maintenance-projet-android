@@ -25,7 +25,6 @@ func _ready():
 	base_mag = Input.get_magnetometer()
 	screen_size = get_viewport().size
 	$AttackTimer.wait_time = delay_between_attacks
-	$AttackTimer.start()
 	$timeLeft.material.set_shader_param ("timer_value",  delay_between_attacks)
 
 
@@ -42,20 +41,7 @@ func _process(delta):
 			player_pos = Directions.UP
 		elif mag.y<base_mag.y:
 			player_pos = Directions.DOWN
-
-
-func move():
-	$Player/ShieldArea2D.position = $Player.position
-	var shield_offset = $Player.shield_offset
-	match(player_pos):
-		Directions.UP:
-			$Player/ShieldArea2D.position.y -= shield_offset
-		Directions.DOWN:
-			$Player/ShieldArea2D.position.y += shield_offset
-		Directions.RIGHT:
-			$Player/ShieldArea2D.position.x += shield_offset
-		Directions.LEFT:
-			$Player/ShieldArea2D.position.x -= shield_offset
+	$Player.move(player_pos)
 
 
 func _on_AttackTimer_timeout():
