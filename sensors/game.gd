@@ -1,5 +1,7 @@
 extends Control
 
+onready var attack = preload("res://Ennemy.tscn")
+export var spawn_offset = Vector2.ZERO
 var base_mag := Vector3.ZERO
 
 export var delay_between_attacks := 1.2
@@ -7,11 +9,9 @@ var player_pos = Directions.NONE
 var attack_dir = Vector2.ZERO
 var rng = RandomNumberGenerator.new()
 
-var score :=0
-var streak :=0
 var screen_size := Vector2.ZERO
 
-onready var attack = preload("res://Attack.tscn")
+
 
 const Directions = {
 	'RIGHT' : Vector2.RIGHT,
@@ -24,8 +24,9 @@ const Directions = {
 func _ready():
 	base_mag = Input.get_magnetometer()
 	screen_size = get_viewport().size
+	spawn_offset = Vector2(screen_size.x/10, screen_size.y/5)
 	$AttackTimer.wait_time = delay_between_attacks
-	$timeLeft.material.set_shader_param ("timer_value",  delay_between_attacks)
+	$AttackTimer.start()
 
 
 func _process(delta):
@@ -42,14 +43,16 @@ func _process(delta):
 		elif mag.y<base_mag.y:
 			player_pos = Directions.DOWN
 	$Player.move(player_pos)
+	
 
 
 func _on_AttackTimer_timeout():
+	print("argh")
 	attack_dir = Directions.values()[rng.randi()%4]
 	var new_attack = attack.instance()
 	new_attack.direction = attack_dir
 	new_attack.position = screen_size/2
-	new_attack.position -= (screen_size * attack_dir)/2
+	new_attack.position -= (screen_size * attack_dir)/2 - spawn_offset*attack_dir
 	add_child(new_attack)
 
 
