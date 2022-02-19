@@ -17,9 +17,9 @@ func _ready():
 	$weaponArea2D/weaponSprite.frame = i
 
 func move(direction):
+	$weaponArea2D.look_at(direction)
 	$weaponArea2D.position = Vector2.ZERO
 	$weaponArea2D.position += (direction * shield_offset)
-	$weaponArea2D.look_at(direction)
 	$playerAnimatedSprite.flip_h = direction.x < 0
 
 func _on_WeaponArea2D_area_entered(area):

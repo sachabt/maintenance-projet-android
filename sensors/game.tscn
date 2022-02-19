@@ -73,5 +73,6 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 2, 2 )
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
