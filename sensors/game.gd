@@ -12,6 +12,8 @@ var rng = RandomNumberGenerator.new()
 var screen_size := Vector2.ZERO
 
 
+var pattern = File.new()
+var pattern_index := 0
 
 const Directions = {
 	'RIGHT' : Vector2.RIGHT,
@@ -27,6 +29,8 @@ func _ready():
 	spawn_offset = Vector2(screen_size.x/10, screen_size.y/5)
 	$AttackTimer.wait_time = delay_between_attacks
 	$AttackTimer.start()
+	
+	pattern.open("res://pattern.json", File.READ)
 
 
 func _process(delta):
@@ -39,11 +43,11 @@ func _process(delta):
 			player_pos = Directions.RIGHT
 	else:
 		if mag.y>base_mag.y:
-			player_pos = Directions.UP
-		elif mag.y<base_mag.y:
 			player_pos = Directions.DOWN
+		elif mag.y<base_mag.y:
+			player_pos = Directions.UP
+			
 	$Player.move(player_pos)
-	
 
 
 func _on_AttackTimer_timeout():

@@ -4,7 +4,7 @@
 [ext_resource path="res://Ennemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 23.5, 41 )
+extents = Vector2( 45, 81 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
@@ -184,10 +184,10 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.5, 19 )
+position = Vector2( 4, 41 )
 shape = SubResource( 1 )
 
-[node name="EnnemyAnimatedSprite2" type="AnimatedSprite" parent="."]
-scale = Vector2( 4, 4 )
+[node name="EnnemyAnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
 frames = SubResource( 5 )
 animation = "ennemy_8"

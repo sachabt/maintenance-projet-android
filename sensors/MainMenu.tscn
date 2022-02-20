@@ -22,7 +22,7 @@ __meta__ = {
 [node name="start" type="Button" parent="VBoxContainer"]
 margin_top = 170.0
 margin_right = 1024.0
-margin_bottom = 190.0
+margin_bottom = 250.0
 custom_constants/hseparation = 0
 text = "start"
 __meta__ = {
@@ -32,13 +32,13 @@ __meta__ = {
 [node name="score" type="Button" parent="VBoxContainer"]
 margin_top = 290.0
 margin_right = 1024.0
-margin_bottom = 310.0
+margin_bottom = 370.0
 text = "scores"
 
 [node name="quit" type="Button" parent="VBoxContainer"]
 margin_top = 410.0
 margin_right = 1024.0
-margin_bottom = 430.0
+margin_bottom = 490.0
 text = "Leave game"
 __meta__ = {
 "_edit_use_anchors_": false

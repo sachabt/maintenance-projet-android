@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/10 - Dark Castle.ogg-814b5cffb62282ff781ffb1f08bc56cd.oggstr"
+
+[deps]
+
+source_file="res://assets/10 - Dark Castle.ogg"
+dest_files=[ "res://.import/10 - Dark Castle.ogg-814b5cffb62282ff781ffb1f08bc56cd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
