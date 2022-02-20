@@ -209,9 +209,21 @@ frames = SubResource( 35 )
 animation = "player_8"
 
 [node name="Hearts" type="Sprite" parent="."]
-position = Vector2( 0, -83 )
+position = Vector2( 1, -136 )
 texture = ExtResource( 4 )
 vframes = 6
+
+[node name="Score" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 64.0
+margin_top = -142.0
+margin_right = 213.0
+margin_bottom = -102.0
+text = "SCORE : 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="area_entered" from="weaponArea2D" to="." method="_on_weaponArea2D_area_entered"]

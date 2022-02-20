@@ -26,14 +26,15 @@ func _on_WeaponArea2D_area_entered(area):
 	area.queue_free()
 	streak +=1
 	score+= streak
+	get_parent().set_text("SCORE : "+str(score))
 
 
 func _on_Player_area_entered(area):
 	area.queue_free()
 	life-=1
-	$Hearts.frame += 1
-	if life==0:
+	if life<=0:
 		emit_signal("died")
+	$Hearts.frame += 1
 
 
 func _on_weaponArea2D_area_entered(area):

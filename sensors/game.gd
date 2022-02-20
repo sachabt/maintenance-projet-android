@@ -59,12 +59,9 @@ func _on_AttackTimer_timeout():
 	new_attack.position -= (screen_size * attack_dir)/2 - spawn_offset*attack_dir
 	add_child(new_attack)
 
-
-func end_game():
-	print("ded")
-	$AttackTimer.stop()
-	pass
+func set_text(text):
+	$Score.text = text
 
 
 func _on_Player_died():
-	end_game()
+	assert(get_tree().change_scene("res://MainMenu.tscn")==OK)
