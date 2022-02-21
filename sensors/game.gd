@@ -62,6 +62,16 @@ func _on_AttackTimer_timeout():
 func set_text(text):
 	$Score.text = text
 
+func add_score():
+	var save_game = File.new()
+	save_game.open("user://scores.save", File.READ_WRITE)
+	save_game.seek_end()
+	var score = {OS.get_ticks_msec() : $Player.score}
+	save_game.store_line(to_json(score))
+	
+
+	save_game.close()
 
 func _on_Player_died():
+	add_score()
 	assert(get_tree().change_scene("res://MainMenu.tscn")==OK)

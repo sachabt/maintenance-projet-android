@@ -14,9 +14,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Mobile Sensors Demo"
-config/description="A demo showing the use of various sensors: an accelerometer, a gyroscope, and a magnetometer.
-These sensors are typically found on mobile devices, so don't expect this to work on a desktop."
+config/name="projet android"
+config/description="Projet réalisé durant ma deuxième année de DUT et mise à jour durant mon semestre au cégep de matane"
 run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
