@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/font.tres" type="Theme" id=2]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -24,6 +25,7 @@ __meta__ = {
 margin_top = 170.0
 margin_right = 1024.0
 margin_bottom = 190.0
+theme = ExtResource( 2 )
 custom_constants/hseparation = 0
 text = "start"
 __meta__ = {
@@ -34,12 +36,14 @@ __meta__ = {
 margin_top = 290.0
 margin_right = 1024.0
 margin_bottom = 310.0
+theme = ExtResource( 2 )
 text = "scores"
 
 [node name="quit" type="Button" parent="VBoxContainer"]
 margin_top = 410.0
 margin_right = 1024.0
 margin_bottom = 430.0
+theme = ExtResource( 2 )
 text = "Leave game"
 __meta__ = {
 "_edit_use_anchors_": false
